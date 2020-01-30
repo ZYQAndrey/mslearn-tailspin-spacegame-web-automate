@@ -104,6 +104,11 @@ stages:
     variables:
     - group: 'Release'
     steps:
+    - task: AzureKeyVault@1
+      inputs:
+        azureSubscription: 'Resource Manager - Tailspin - Space Game'
+        KeyVaultName: 'tailspin-vault-13821'
+        SecretsFilter: '*'
     - task: AzureResourceManagerTemplateDeployment@3
       inputs:
         deploymentScope: 'Resource Group'
